@@ -1,10 +1,10 @@
 # Fishces_2020
 This repository contains the code associated with analyses of the density and community composition of Symbiodiniaceae in fish feces.
 
-#Symiodiniaceae cell counts (figure 2)./n
+#Symiodiniaceae cell counts (figure 2).
 This code contains everything needed to replicate the analysis for Symbiodiniaceae cell counts. The data can be found attached to the manuscript. DOI:
 
-#Symbiodiniaceae community analysis (figure 3)./n
+#Symbiodiniaceae community analysis (figure 3).
 This code contains everything needed to replicate the analysis for Symbiodiniaceae community analysis. 
 You will need the following files (that are also in the Fishces_2020 folder: 
 - Fishces_2019_ITS2_2_profiles.csv #This file contains output from Symportal, but all the individual ITS2 profiles are removed.
