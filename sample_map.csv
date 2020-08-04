@@ -1,0 +1,137 @@
+Sample,Zone,Type,Species,Species_full,Ecology,Ecology_corsp
+19CHOR1,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR2,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR3,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR4,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR5,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR6,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR7,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR8,Fore reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR9,Back reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR10,Back reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR11,Back reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR12,Back reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR13,Back reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CHOR14,Back reef,Feces,CHOR,Chaetodon ornatissimus,Obligate corallivore,Obligate corallivore
+19CTFL1,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CTFL2,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CTFL3,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CTFL4,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CTFL5,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CTFL6,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CTFL7,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CTFL8,Fore reef,Feces,CTFL,Ctenochaetus flavicauda,Algivore,Algivore
+19CHSP1,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHSP2,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHSP3,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHSP4,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHSP5,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHSP6,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHSP7,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHSP8,Fore reef,Feces,CHSP,Chlorurus spilurus,Facultative corallivore,Facultative corallivore
+19CHCI1,Back reef,Feces,CHCI,Chaetodon citrinellus,Facultative corallivore,Facultative corallivore
+19CHCI2,Back reef,Feces,CHCI,Chaetodon citrinellus,Facultative corallivore,Facultative corallivore
+19CHCI3,Back reef,Feces,CHCI,Chaetodon citrinellus,Facultative corallivore,Facultative corallivore
+19CHCI4,Back reef,Feces,CHCI,Chaetodon citrinellus,Facultative corallivore,Facultative corallivore
+19CHCI5,Back reef,Feces,CHCI,Chaetodon citrinellus,Facultative corallivore,Facultative corallivore
+19CHCI6,Back reef,Feces,CHCI,Chaetodon citrinellus,Facultative corallivore,Facultative corallivore
+19CHLU1,Fore reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CHLU2,Back reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CHLU3,Back reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CHLU4,Back reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CHLU5,Back reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CHLU6,Back reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CHLU7,Back reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CHLU8,Back reef,Feces,CHLU,Chaetodon lunulatus,Obligate corallivore,Obligate corallivore
+19CTST1,Back reef,Feces,CTST,Ctenochaetus striatus,Algivore,Algivore
+19CTST2,Back reef,Feces,CTST,Ctenochaetus striatus,Algivore,Algivore
+19CTST3,Back reef,Feces,CTST,Ctenochaetus striatus,Algivore,Algivore
+19CTST4,Back reef,Feces,CTST,Ctenochaetus striatus,Algivore,Algivore
+19CTST5,Back reef,Feces,CTST,Ctenochaetus striatus,Algivore,Algivore
+19CTST6,Back reef,Feces,CTST,Ctenochaetus striatus,Algivore,Algivore
+19CHPE1,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19CHPE2,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19CHPE3,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19CHPE4,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19CHPE5,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19CHPE6,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19CHPE7,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19CHPE8,Fore reef,Feces,CHPE,Chaetodon pelewensis,Facultative corallivore,Facultative corallivore
+19AMSC1,Fore reef,Feces,AMSC,Amanses scopas,Obligate corallivore,Obligate corallivore
+19AMSC2,Fore reef,Feces,AMSC,Amanses scopas,Obligate corallivore,Obligate corallivore
+19AMSC3,Fore reef,Feces,AMSC,Amanses scopas,Obligate corallivore,Obligate corallivore
+19AMSC4,Fore reef,Feces,AMSC,Amanses scopas,Obligate corallivore,Obligate corallivore
+19AMSC5,Fore reef,Feces,AMSC,Amanses scopas,Obligate corallivore,Obligate corallivore
+19AMSC6,Fore reef,Feces,AMSC,Amanses scopas,Obligate corallivore,Obligate corallivore
+19AMSC7,Fore reef,Feces,AMSC,Amanses scopas,Obligate corallivore,Obligate corallivore
+19CHRE1,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE2,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE3,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE4,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE5,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE6,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE7,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE8,Fore reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE9,Back reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE10,Back reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+19CHRE11,Back reef,Feces,CHRE,Chaetodon reticulatus,Obligate corallivore,Obligate corallivore
+CT3,Fore reef,Coral,Porites,Porites,Coral,Porites
+CT4,Fore reef,Coral,Porites,Porites,Coral,Porites
+CT153-1,Fore reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+Ct17,Fore reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT21,Fore reef,Coral,Acropora,Acropora,Coral,Acropora
+CT22,Fore reef,Coral,Porites,Porites,Coral,Porites
+CT25,Fore reef,Coral,Porites,Porites,Coral,Porites
+CT26,Fore reef,Coral,Acropora,Acropora,Coral,Acropora
+CT27,Fore reef,Coral,Acropora,Acropora,Coral,Acropora
+CT33,Fore reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT49,Fore reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT53,Back reef,Coral,Acropora,Acropora,Coral,Acropora
+CT60,Back reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT64,Back reef,Coral,Acropora,Acropora,Coral,Acropora
+CT65,Back reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT67,Back reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT68,Back reef,Coral,Porites,Porites,Coral,Porites
+CT72,Back reef,Coral,Porites,Porites,Coral,Porites
+CT73,Back reef,Coral,Acropora,Acropora,Coral,Acropora
+CT84,Back reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT87,Back reef,Coral,Porites,Porites,Coral,Porites
+CT94,Back reef,Coral,Acropora,Acropora,Coral,Acropora
+CT95,Back reef,Coral,Porites,Porites,Coral,Porites
+CT102,Fore reef,Coral,Acropora,Acropora,Coral,Acropora
+CT108,Back reef,Coral,Acropora,Acropora,Coral,Acropora
+CT111,Back reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT114,Back reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT117,Back reef,Coral,Acropora,Acropora,Coral,Acropora
+CT136,Back reef,Coral,Porites,Porites,Coral,Porites
+CT139,Back reef,Coral,Porites,Porites,Coral,Porites
+CT145,Fore reef,Coral,Acropora,Acropora,Coral,Acropora
+CT146,Fore reef,Coral,Porites,Porites,Coral,Porites
+CT149,Fore reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT153-2,Fore reef,Coral,Pocillopora,Pocillopora,Coral,Pocillopora
+CT155,Fore reef,Coral,Porites,Porites,Coral,Porites
+CT159,Fore reef,Coral,Acropora,Acropora,Coral,Acropora
+BAKSED1,Back reef,Sediment,Sediment,Sediment,Environmental,Environmental
+BAKSED2,Back reef,Sediment,Sediment,Sediment,Environmental,Environmental
+BAKSED3,Back reef,Sediment,Sediment,Sediment,Environmental,Environmental
+BAKSED4,Back reef,Sediment,Sediment,Sediment,Environmental,Environmental
+BAKSED5,Back reef,Sediment,Sediment,Sediment,Environmental,Environmental
+BAKSED6,Back reef,Sediment,Sediment,Sediment,Environmental,Environmental
+FORSED1,Fore reef,Sediment,Sediment,Sediment,Environmental,Environmental
+FORSED2,Fore reef,Sediment,Sediment,Sediment,Environmental,Environmental
+FORSED3,Fore reef,Sediment,Sediment,Sediment,Environmental,Environmental
+FORSED4,Fore reef,Sediment,Sediment,Sediment,Environmental,Environmental
+FORSED5,Fore reef,Sediment,Sediment,Sediment,Environmental,Environmental
+FORSED6,Fore reef,Sediment,Sediment,Sediment,Environmental,Environmental
+BAKH2O1,Back reef,Water,Water,Water,Environmental,Environmental
+BAKH2O2,Back reef,Water,Water,Water,Environmental,Environmental
+BAKH2O3,Back reef,Water,Water,Water,Environmental,Environmental
+BAKH2O4,Back reef,Water,Water,Water,Environmental,Environmental
+BAKH2O5,Back reef,Water,Water,Water,Environmental,Environmental
+BAKH2O6,Back reef,Water,Water,Water,Environmental,Environmental
+FORH2O1,Fore reef,Water,Water,Water,Environmental,Environmental
+FORH2O2,Fore reef,Water,Water,Water,Environmental,Environmental
+FORH2O3,Fore reef,Water,Water,Water,Environmental,Environmental
+FORH2O4,Fore reef,Water,Water,Water,Environmental,Environmental
+FORH2O5,Fore reef,Water,Water,Water,Environmental,Environmental
+FORH2O6,Fore reef,Water,Water,Water,Environmental,Environmental
