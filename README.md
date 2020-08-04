@@ -9,7 +9,7 @@ This code contains everything needed to replicate the analysis for Symbiodiniace
 #Symbiodiniaceae community analysis (figure 3).
 
 This code contains everything needed to replicate the analysis for Symbiodiniaceae community analysis. 
-You will need the following files (that are also in the Fishces_2020 folder: 
+You will need the following files (that are also in the Fishces_2020 repository: 
 - Fishces_2019_ITS2_2_profiles.csv #This file contains output from Symportal, but all the individual ITS2 profiles are removed.
 - Fishces_ 2019_ITS2_2_profiles_meta.csv #This file contains clade information from the output from Symportal.
 - Sample_map.csv #This file contains data on individual samples included in the analysis (e.g. species names and collection zones)
