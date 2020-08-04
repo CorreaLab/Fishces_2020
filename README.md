@@ -17,7 +17,7 @@ You will need the following files (that are also in the Fishces_2020 repository:
 - Sym_gen.csv #This file contains Symbiodiniaceae genera names to be used in one of the figures (instead of clade denominations)
 
 
-#Dispersal rate estimates (figure 4).
+#Symbiodiniaceae cell dispersal bootstrap code (figure 4).
 
 This code contains everything needed to replicate the bootstrap analysis used for figure 4. The data can be found attached to the manuscript. DOI:
 
