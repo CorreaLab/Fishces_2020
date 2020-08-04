@@ -52,7 +52,7 @@ tbx2 <- tb2 %>%
   dplyr::summarize(upper=CI(cells)[1], mean=CI(cells)[2], lower=CI(cells)[3],sd=sd(cells), se=std.error(cells))%>%
   dplyr::mutate(CI=upper-mean)
 
-#Kruskal-Wallis and Dunn tests on 'Species
+#Kruskal-Wallis and Dunn tests on 'Species'
 cellskt_species <- kruskal.test(cells~Species, data=tbg3)
 cellskt_species
 dunn_species <- dunn.test(tbg3$cells, g=tbg3$Species, wrap=TRUE, method="BH", list=TRUE)
