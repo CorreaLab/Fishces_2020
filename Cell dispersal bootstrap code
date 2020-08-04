@@ -1,0 +1,134 @@
+library(Rmisc)
+library(tidyverse)
+
+#read in object
+csv <- read.csv("Bootstrap_datafile_manuscript.csv")
+
+#Create separate matrices for CHOR, CHRE and CHCI
+CHRE <- csv%>%
+  filter(Species_full=="Chaetodon reticulatus")
+CHOR <- csv%>%
+  filter(Species_full=="Chaetodon ornatissimus")
+CHCI <- csv%>%
+  filter(Species_full=="Chaetodon citrinellus")
+
+#Create egestion weight vectors
+CHOR_PWeight <- na.omit(CHOR$Wet_weight_g_cm)
+CHRE_PWeight <- na.omit(CHRE$Wet_weight_g_cm)
+CHCI_PWeight <- na.omit(CHCI$Wet_weight_g_cm)
+
+#Create CellDens vectors
+CHRE_CellDens<- na.omit(CHRE$live_g_sample) 
+CHOR_CellDens<- na.omit(CHOR$live_g_sample) 
+CHCI_CellDens<- na.omit(CHCI$live_g_sample) 
+
+#Create egestion rate value (these are means calculated from observational data, see methods).
+CHOR_PRate <- 1.344387184
+CHRE_PRate <- 1.081210956
+CHCI_PRate <- 0.96969697
+
+#Create feces size vectors
+CHOR_PLength <- na.omit(CHOR$Poop_length)
+CHRE_PLength <- na.omit(CHRE$Poop_length)
+CHCI_PLength <- na.omit(CHCI$Poop_length)
+
+#Create Fish density vectors
+CHCI_Back <- CHCI%>%
+  filter(Reef.zone=="Back Reef")
+CHOR_Fore <- CHOR%>%
+  filter(Reef.zone=="Fore Reef")
+CHRE_Fore <- CHRE%>%
+  filter(Reef.zone=="Fore Reef")
+
+CHCI_FishDens_BR <- na.omit(CHCI_Back$Density)
+CHOR_FishDens_FR <- na.omit(CHOR_Fore$Density)
+CHRE_FishDens_FR <- na.omit(CHRE_Fore$Density)
+CI(CHCI_FishDens_BR)
+CI(CHOR_FishDens_FR)
+CI(CHRE_FishDens_FR)
+
+#CHOR Forereef bootstrap
+CHORBoot_FR <- function(CHOR_FishDens_FR, CHOR_PRate, CHOR_CellDens, CHOR_PLength, CHOR_PWeight){
+  Samp.FishDens <- sample(CHOR_FishDens_FR,1)
+  Samp.PRate <- sample(CHOR_PRate,1)
+  Samp.CellDens <- sample(CHOR_CellDens,1)
+  Samp.PLength <- sample(CHOR_PLength,1)
+  Samp.PWeight <- sample(CHOR_PWeight,1)
+  CPDKM <- Samp.FishDens*Samp.PRate*Samp.CellDens*Samp.PLength*Samp.PWeight*8*0.4
+  return(CPDKM)
+}
+
+CHORDist_FR <- replicate(1000, CHORBoot_FR(CHOR_FishDens_FR,CHOR_PRate,CHOR_CellDens,CHOR_PLength,CHOR_PWeight))
+
+mean(CHORDist_FR)
+CI(CHORDist_FR)
+CI(CHORDist_FR)[2]-CI(CHORDist_FR)[3]
+
+median(CHORDist_FR)
+
+#CHRE Forereef bootstrap
+CHREBoot_FR <- function(CHRE_FishDens_FR, CHRE_PRate, CHRE_CellDens, CHRE_PLength, CHRE_PWeight){
+  Samp.FishDens <- sample(CHRE_FishDens_FR,1)
+  Samp.PRate <- sample(CHRE_PRate,1)
+  Samp.CellDens <- sample(CHRE_CellDens,1)
+  Samp.PLength <- sample(CHRE_PLength,1)
+  Samp.PWeight <- sample(CHRE_PWeight,1)
+  CPDKM <- Samp.FishDens*Samp.PRate*Samp.CellDens*Samp.PLength*Samp.PWeight*8*0.4
+  return(CPDKM)
+}
+
+CHREDist_FR <- replicate(1000, CHREBoot_FR(CHRE_FishDens_FR,CHRE_PRate,CHRE_CellDens,CHRE_PLength,CHRE_PWeight))
+
+mean(CHREDist_FR)
+CI(CHREDist_FR)
+CI(CHREDist_FR)[2] -CI(CHREDist_FR)[3]
+
+median(CHREDist_FR)
+
+#CHCI Backreef bootstrap
+CHCIBoot_BR <- function(CHCI_FishDens_BR, CHCI_PRate, CHCI_CellDens, CHCI_PLength, CHCI_PWeight){
+  Samp.FishDens <- sample(CHCI_FishDens_BR,1)
+  Samp.PRate <- sample(CHCI_PRate,1)
+  Samp.CellDens <- sample(CHCI_CellDens,1)
+  Samp.PLength <- sample(CHCI_PLength,1)
+  Samp.PWeight <- sample(CHCI_PWeight,1)
+  CPDKM <- Samp.PRate*Samp.CellDens*Samp.PLength*Samp.PWeight*8*0.4
+  return(CPDKM)
+}
+
+CHCIDist_BR <- replicate(1000, CHCIBoot_BR(CHCI_FishDens_BR,CHCI_PRate,CHCI_CellDens,CHCI_PLength,CHCI_PWeight))
+
+mean(CHCIDist_BR)
+CI(CHCIDist_BR)
+CI(CHCIDist_BR)[2] -CI(CHCIDist_BR)[3]
+
+median(CHCIDist_BR)
+
+##Combine dataframes and 'make long'
+final <- as.data.frame(cbind(CHORDist_FR, CHREDist_FR, CHCIDist_BR))
+combinedfinal <- final %>%
+  gather(CHORDist_FR:CHCIDist_BR, key=species, value=cells)
+
+#Change names of fish species
+combinedfinal3<- combinedfinal%>%
+  dplyr::mutate(species=ifelse(species=="CHORDist_FR","CHOR",
+                               ifelse(species=="CHREDist_FR", "CHRE", "CHCI")))
+
+#Sort fish species names
+combinedfinal3$species <- factor(combinedfinal3$species, levels= c("CHRE", "CHOR","CHCI"))
+
+#Plot kernel density estimate
+colorvec <- c("#283A91","#338FBD","#5FBFC0")
+
+histplot_final <- ggplot(combinedfinal3, aes(x=cells, fill=species))+
+  theme_classic(base_size = 11)+
+  scale_fill_manual(values=colorvec)+
+  scale_color_manual(values=colorvec)+
+  geom_density(alpha=0.7,size=0.5,adjust=2)+
+  labs(x=expression("Cell dispersal "(per~100~m^2~per~day^1)))+
+  scale_x_log10(limits=c(1000,1000000000))+
+  labs(y="Kernel density estimate", title="")+
+  guides(fill=guide_legend(title="Fish species"))+
+  annotation_logticks(sides ="b")+
+  theme(legend.position = c(0.2,0.8)) 
+histplot_final
