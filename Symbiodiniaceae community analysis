@@ -1,0 +1,135 @@
+library(vegan)
+library(pairwiseAdonis)
+library(tidyverse)
+
+#Read in Symportal files (meta and sym are two parts of the Symportal files, facilitating easier data manipulation)
+sym <- read.csv("Fisces_2019_ITS2_2_profiles.csv")
+meta <- read.csv("Fisces_2019_ITS2_2_profiles_meta.csv")
+samples <- read.csv("sample_map.csv")
+
+#Calculate total reads per sample
+Sym2 <- sym%>%
+  mutate(sum=select(.,X105:X167)%>%
+           apply(1, sum, na.rm=TRUE))
+
+#Make figure of #reads per sample
+readdepth <- ggplot(Sym2, aes(x=Sample, y=sum))+
+  geom_point()+
+  scale_y_log10(labels = trans_format("log10", math_format(10^.x)))+
+  theme_classic()+
+  theme(axis.text.y = element_text(size=6))+
+  coord_flip()+
+  labs(y="Total reads")
+readdepth
+
+#Filter samples with more than 1000 reads
+Symr <- Sym2 %>%
+  filter(sum >1000) 
+
+#Rarefaction curves
+rarefaction <- rarecurve(Symr[,3:71], xlim=c(0, 3000))
+str(rarefaction)
+rarefaction
+
+#Merge counts table and sample files
+Sym_xr <- merge(Symr, samples, by="Sample")
+
+#Transform into long datafile
+Sym_xr2 <- Sym_xr %>%
+  tidyr::gather("X105":"X167",key=UID,value=reads)
+str(Sym_xr2)
+
+#Merge counts table and metadata files
+Sym_xr2 <- merge(Sym_xr2, meta, by="UID")
+str(Sym_xr2)
+
+#Change to relative reads per ITS2 type
+Sym_table <- Sym_xr2%>%
+  mutate(rel=reads/sum)
+
+#Calculate reads per clade
+Sym_table_eco <- Sym_table%>%
+  dplyr::group_by(Clade,Species,Sample,Species_full,Ecology_corsp,Ecology)%>%
+  dplyr::summarize(sum_reads=sum(rel))
+
+#Generate means table
+Sym_table_eco_stats <- Sym_table_eco %>%
+  dplyr::group_by(Species_full, Clade, Ecology_corsp)%>%
+  dplyr::summarize(mean_reads=mean(sum_reads), sd=sd(sum_reads))
+
+Sym_table_eco2 <- Sym_table_eco %>%
+  dplyr::group_by(Clade,Species_full,Ecology_corsp)%>%
+  dplyr::summarize(mean=mean(sum_reads))
+
+Sym_table_eco_2 <- Sym_table_eco2 %>%
+  tidyr::spread(Clade, mean)
+
+#Turn table into long format
+Sym_table_eco_3 <- Sym_table_eco_2%>%
+  gather(A:F,key=clade,value="Relative.gene.abundance")
+
+#Add species names and Symbiodiniaceae genera
+spec <- read.csv("specode.csv")
+Sym_table_eco4 <- merge(Sym_table_eco_3, spec, by="Species_full")
+Sym_gen <- read.csv("Sym_gen.csv")
+Sym_table_eco4 <- merge(Sym_table_eco4, Sym_gen, by="clade")
+
+#Generate heatmap
+heatmap2 <- ggplot(Sym_table_eco4, aes(x=fct_relevel(Specode,levels=c("Acropora","Pocillopora","Porites","CHRE","CHLU","CHOR","AMSC","CHPE","CHCI","CHSP","CTST","CTFL","Sediment","Water")), y=fct_relevel(genus,c("Fugacium","Durusdinium","Cladocopium","Breviolum","Symbiodinium")), fill=Relative.gene.abundance))+ # y=fct_relevel(genus,c("Fugacium","Durusdinium","Cladocopium","Brevolium","Symbiodinium"))
+  theme_classic()+
+  geom_raster()+
+  labs(y="Symbiodiniaceae\ngenus", x=element_blank(), fill="Relative gene\nabundance")+
+  theme(axis.text.x = element_text(angle = 90,hjust=0.95,vjust=0.2),
+        axis.text.y = element_text(face = "italic"))+
+  scale_fill_gradientn(colors= c("white","#7BCBBC","#36AFC3", "#267AB7", "#253C96"))+
+  scale_x_discrete(labels=expression("ACR", "POC", "POR", "CHRE","CHLU","CHOR","AMSC","CHPE","CHCI","CHSP","CTST","CTFL","SED","WAT"))+
+  geom_vline(xintercept = c(3.5,7.5,10.5,12.5))+
+  theme(legend.position = "bottom")
+heatmap2
+
+#Transform table for community composition statistics
+Sym_table_eco_2 <- Sym_table_eco %>%
+  tidyr::spread(Clade, sum_reads)
+str(Sym_table_eco_2)
+
+#Generate Bray-Curtis distances
+dist.mat<-vegdist(Sym_table_eco_2[,5:10],binary=TRUE, method="bray")
+
+#Test dispersion using betadisper
+model <- betadisper(dist.mat, group = Sym_table_eco_2$Ecology_corsp)
+boxplot(model)
+anova(model) #Significant differences in dispersion. Because we have an unbalanced design, we need to subsample to get a balanced design
+
+#Random sampling
+Ob <- Sym_table_eco_2 %>%
+  filter(Ecology_corsp == "Obligate corallivore")
+Fac<- Sym_table_eco_2 %>%
+  filter(Ecology_corsp == "Facultative corallivore")
+Alg<- Sym_table_eco_2 %>%
+  filter(Ecology_corsp == "Algivore")
+env <- Sym_table_eco_2 %>%
+  filter(Ecology_corsp == "Environmental")
+
+Coral <- Sym_table_eco_2 %>%
+  filter(Ecology == "Coral")
+
+Ob2 <-sample_n(as.data.frame(Ob), 12, replace=FALSE)
+Fac2 <-sample_n(as.data.frame(Fac), 12, replace=FALSE)
+Alg2 <-sample_n(as.data.frame(Alg), 12, replace=FALSE)
+env2 <-sample_n(as.data.frame(env), 12, replace=FALSE)
+
+adn <- rbind.fill(Ob2,Fac2,Alg2,env2,Coral)
+
+#Check if this worked properly
+str(adn) #Looks good
+
+#Bray-Curtis distances based on randomly sampled data 
+dist.mat<-vegdist(adn[,5:10],binary=FALSE, method="bray")
+
+#Conduct PERMANOVA using Adonis
+adonisoutput <- adonis(dist.mat ~ adn$Ecology_corsp)
+adonisoutput
+
+#Conduct pairwise PERMANOVA using pairwiseAdonis (note that these results will be slightly different between iterations due to random subsampling)
+pw<-pairwise.adonis(dist.mat, adn$Ecology_corsp, p.adjust.m = "BH")
+pw
