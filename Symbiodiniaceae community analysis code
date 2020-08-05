@@ -100,7 +100,13 @@ model <- betadisper(dist.mat, group = Sym_table_eco_2$Ecology_corsp)
 boxplot(model)
 anova(model) #Significant differences in dispersion. Because we have an unbalanced design, we need to subsample to get a balanced design
 
-#Random sampling
+#Random sampling of rows to create a balanced design. Different iterations may result in slightly different results. In order to facilitate replication, these were the included samples after random subsampling used in the manuscript:
+#Obligate corallivores: 19AMSC4, 19AMSC6, 19AMSC7, 19CHLU2, 19CHLU6, 19CHOR5, 19CHOR7, 19CHOR8, 19CHOR12, 19CHOR14, 19CHRE9, 19CHRE11; 
+#facultative corallivores: 19CHCI2, 19CHCI3, 19CHCI4, 19CHPE1, 19CHPE3, 19CHPE4, 19CHPE5, 19CHPE6, 19CHPE8, 19CHSP2, 19CHSP4, 19CHSP7; 
+#Grazer/detritivores: 19CTFL1, 19CTFL3, 19CTFL4, 19CTFL5, 19CTFL6, 19CTFL7, 19CTFL8, 19CTST1, 19CTST3, 19CTST4, 19CTST5, 19CTST6; 
+#sediment and water: BAKSED1, BAKSED2, BAKSED4, BAKSED5, FORSED1, FORSED2, FORSED3, FORSED4, FORSED6, FORH2O2, BAKH2O5, FORH2O5); 
+#All coral samples (because we only have 12 samples of each coral). 
+
 Ob <- Sym_table_eco_2 %>%
   filter(Ecology_corsp == "Obligate corallivore")
 Fac<- Sym_table_eco_2 %>%
