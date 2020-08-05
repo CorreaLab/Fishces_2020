@@ -28,9 +28,9 @@ CHRE_PRate <- 1.081210956
 CHCI_PRate <- 0.96969697
 
 #Create feces size vectors
-CHOR_PLength <- na.omit(CHOR$Poop_length)
-CHRE_PLength <- na.omit(CHRE$Poop_length)
-CHCI_PLength <- na.omit(CHCI$Poop_length)
+CHOR_PLength <- na.omit(CHOR$Pellet_length)
+CHRE_PLength <- na.omit(CHRE$Pellet_length)
+CHCI_PLength <- na.omit(CHCI$Pellet_length)
 
 #Create Fish density vectors
 CHCI_Back <- CHCI%>%
